@@ -1,6 +1,7 @@
 ---
 - name: "Install Nginx and Upload my Web Page"
   hosts: all 
+  become: yes
   tasks:
     - name: "Debug"
       ansible.builtin.debug:
