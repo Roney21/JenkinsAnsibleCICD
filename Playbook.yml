@@ -1,7 +1,48 @@
 ---
-- name: "Test playbook run"
-  hosts: all # теперь запускаем скрипты на удаленных хостах
+- name: "Install Nginx and Upload my Web Page"
+  hosts: all 
+  vars:
+  source_folder: ./
+  destin_folder: /var/www/vladyslavdubov.site
   tasks:
     - name: "Debug"
       ansible.builtin.debug:
         msg: "Test debug"
+
+    - name: "Update apt cache and install Nginx"
+      apt:
+        name: nginx
+        state: latest
+        update_cache: yes
+
+    - name: "Copy website files"
+      copy:
+        src: {{ source_folder }}
+        dest: {{ destin_folder }}
+        mode: preserve
+
+    - name: "Apply Nginx config"
+      template:
+        src: vladysalvdubov.site.conf
+        dest: /etc/nginx/sites-available/
+      notify: Restart Nginx
+
+    - name: "Enable new site"
+      file:
+        src: /etc/nginx/sites-available/vladysalvdubov.site.conf
+        dest: /etc/nginx/sites-enabled/vladysalvdubov.site.conf
+        state: link
+      notify: Restart Nginx
+
+    - name: Allow all access to tcp port 80
+      ufw:
+        rule: allow
+        port: '80'
+        proto: tcp
+        
+  handlers:
+    - name: Restart Nginx
+      service:
+        name: nginx
+        state: restarted 
+
