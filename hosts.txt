@@ -1,2 +1,2 @@
 [prod_servers]
-linux1 ansible_host=51.20.12.237 ansible_user=roney ansible_ssh_private_key_file=~/.ssh/ansible
+linux1 ansible_host=51.20.12.237 ansible_user=ubuntu ansible_ssh_private_key_file=~/.ssh/ansible
