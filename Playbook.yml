@@ -21,14 +21,14 @@
 
     - name: "Apply Nginx config"
       copy:
-        src: ./vladysalvdubov.site.conf
+        src: ./vladyslavdubov.site.conf
         dest: /etc/nginx/sites-available/
       notify: Restart Nginx
 
     - name: "Enable new site"
       file:
-        src: /etc/nginx/sites-available/vladysalvdubov.site.conf
-        dest: /etc/nginx/sites-enabled/vladysalvdubov.site.conf
+        src: /etc/nginx/sites-available/vladyslavdubov.site.conf
+        dest: /etc/nginx/sites-enabled/vladyslavdubov.site.conf
         state: link
       notify: Restart Nginx
 
