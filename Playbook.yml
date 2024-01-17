@@ -1,9 +1,6 @@
 ---
 - name: "Install Nginx and Upload my Web Page"
   hosts: all 
-  vars:
-  source_folder: ./
-  destin_folder: /var/www/vladyslavdubov.site
   tasks:
     - name: "Debug"
       ansible.builtin.debug:
@@ -17,8 +14,8 @@
 
     - name: "Copy website files"
       copy:
-        src: {{ source_folder }}
-        dest: {{ destin_folder }}
+        src: ./
+        dest: /var/www/vladyslavdubov.site
         mode: preserve
 
     - name: "Apply Nginx config"
@@ -39,7 +36,7 @@
         rule: allow
         port: '80'
         proto: tcp
-        
+
   handlers:
     - name: Restart Nginx
       service:
