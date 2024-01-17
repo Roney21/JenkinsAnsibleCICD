@@ -20,7 +20,7 @@
         mode: preserve
 
     - name: "Apply Nginx config"
-      template:
+      copy:
         src: vladysalvdubov.site.conf
         dest: /etc/nginx/sites-available/
       notify: Restart Nginx
