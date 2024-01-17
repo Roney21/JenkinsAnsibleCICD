@@ -21,7 +21,7 @@
 
     - name: "Apply Nginx config"
       copy:
-        src: vladysalvdubov.site.conf
+        src: ./vladysalvdubov.site.conf
         dest: /etc/nginx/sites-available/
       notify: Restart Nginx
 
