@@ -1,0 +1,7 @@
+---
+- name: "Test playbook run"
+  hosts: all # теперь запускаем скрипты на удаленных хостах
+  tasks:
+    - name: "Debug"
+      ansible.builtin.debug:
+        msg: "Test debug"

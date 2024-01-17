@@ -1,0 +1,45 @@
+.waves{
+    background-image: url(./static/1686502.png);
+    background-size: cover;
+    position: fixed;
+    top: 200px;
+    left: -10px;
+    width: 145%;
+    height: 100%;
+    animation: waves 15s -3s ease-in-out;
+    animation-iteration-count: 2;
+    z-index: -1;
+}
+.docker{
+    background-image: url(./static/docker_logo_icon_181247.png);
+    height: 100%;
+    width: 100%;
+    position: fixed;
+    background-repeat: no-repeat;
+    top:250px;
+    right: 75%;
+    transform: scaleX(-1);
+    animation: waves 5s -3s ease-in-out;
+
+}
+tr{
+    transition: 0.3s;
+}
+tr:hover{
+    transform: scale(1.1);
+    background-color: white;
+    filter: drop-shadow(5px 5px black)
+}
+@keyframes waves {
+    0% {
+        transform: translateX(1);
+    }
+
+    50% {
+        transform: translateX(-25%);
+    }
+
+    100% {
+        transform: translateX(1);
+    }
+}
