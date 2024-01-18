@@ -14,13 +14,13 @@
         update_cache: yes
 
     - name: "Copy website files"
-      synchronize:
+      copy:
         src: ./
         dest: /var/www/vladyslavdubov.site
         mode: preserve
 
     - name: "Apply Nginx config"
-      synchronize:
+      copy:
         src: ./vladyslavdubov.site.conf
         dest: /etc/nginx/sites-available/
       notify: Restart Nginx
