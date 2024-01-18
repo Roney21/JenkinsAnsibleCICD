@@ -5,7 +5,7 @@
   tasks:
     - name: "Debug"
       ansible.builtin.debug:
-        msg: "Test debug"
+        msg: "Test debug2"
 
     - name: "Update apt cache and install Nginx"
       apt:
