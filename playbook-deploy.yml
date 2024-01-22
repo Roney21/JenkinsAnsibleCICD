@@ -8,7 +8,7 @@
         msg: "Test debug2"
 
     - name: "Copy website files"
-      host synchronize:
+      synchronize:
         src: ./
         dest: /var/www/vladyslavdubov.site
 
