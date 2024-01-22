@@ -31,7 +31,7 @@
             port: '80'
             proto: tcp
 
-  handlers:
+   handlers:
     - name: Restart Nginx
       service:
         name: nginx
