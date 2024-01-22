@@ -31,6 +31,7 @@
             dest: /etc/nginx/sites-enabled/vladyslavdubov.site.conf
             state: link
           notify: Restart Nginx
+          when: test_conf.status=="-1"
 
         - name: Allow all access to tcp port 80
           ufw:

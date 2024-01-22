@@ -7,40 +7,9 @@
       ansible.builtin.debug:
         msg: "Test debug2"
 
-    - name: "Update apt cache and install Nginx"
-      apt:
-        name: nginx
-        state: latest
-        update_cache: yes
-
     - name: "Copy website files"
-      copy:
+      host synchronize:
         src: ./
         dest: /var/www/vladyslavdubov.site
-        mode: preserve
 
-    - name: "Apply Nginx config"
-      copy:
-        src: ./vladyslavdubov.site.conf
-        dest: /etc/nginx/sites-available/
-      notify: Restart Nginx
-
-    - name: "Enable new site"
-      file:
-        src: /etc/nginx/sites-available/vladyslavdubov.site.conf
-        dest: /etc/nginx/sites-enabled/vladyslavdubov.site.conf
-        state: link
-      notify: Restart Nginx
-
-    - name: Allow all access to tcp port 80
-      ufw:
-        rule: allow
-        port: '80'
-        proto: tcp
-
-  handlers:
-    - name: Restart Nginx
-      service:
-        name: nginx
-        state: restarted 
 
