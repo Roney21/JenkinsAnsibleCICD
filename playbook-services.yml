@@ -23,7 +23,7 @@
             src: ./vladyslavdubov.site.conf
             dest: /etc/nginx/sites-available/
           notify: Restart Nginx
-          when: test_conf.status=="-1"
+          when: test_conf.status=="200"
 
         - name: "Enable new site"
           file:
@@ -31,7 +31,7 @@
             dest: /etc/nginx/sites-enabled/vladyslavdubov.site.conf
             state: link
           notify: Restart Nginx
-          when: test_conf.status=="-1"
+          when: test_conf.status=="200"
 
         - name: Allow all access to tcp port 80
           ufw:
