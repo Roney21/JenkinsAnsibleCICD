@@ -12,11 +12,18 @@
             name: nginx
             state: latest
             update_cache: yes
+
+        - name: Test for config
+          ansible.builtin.uri:
+            url: https://vladyslavdubov.site
+          register: test_conf
+
         - name: "Apply Nginx config"
           copy:
             src: ./vladyslavdubov.site.conf
             dest: /etc/nginx/sites-available/
           notify: Restart Nginx
+          when: test_conf.status=="-1"
 
         - name: "Enable new site"
           file:
@@ -36,3 +43,4 @@
       service:
         name: nginx
         state: restarted 
+
