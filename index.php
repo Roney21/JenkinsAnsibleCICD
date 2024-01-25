@@ -27,6 +27,7 @@
             <td><b>Server OS:</b> Linux (Ubuntu, CentOS), macOS, Windows<br>
                 <b>Tools:</b> Jenkins, Git, Ansible, Docker, <br>
                  Docker-Compose, Terraform (basic) <br>
+                 <b>Monitorng:</b> Grafana, InfluxDB, Telegraf <br>
                  <b>Programming:</b> Python, Bash scripting(basic)<br>
                 <b>DB:</b> PostgreSQL, MySQL, Firebase Realtime DB (basic) <br>
                 <b>Services:</b> AWS (basic), Azure (basic), Openstack 
