@@ -42,7 +42,7 @@
     </tbody>
 </table>
 <div style="text-align: center; margin: 20px;">this website is deployed using Github, Jenkins CI/CD+Ansible and AWS EC2.</div>
-<div style="text-align: center; margin: 20px;">IP Address is: <?php echo $_SERVER["REMOTE_ADDR"]; ?></div>
+<div style="text-align: center; margin: 20px;">IP Address is: <?php echo $_SERVER["SERVER_ADDR"]; ?></div>
 </div>
 </body>
 </html>
